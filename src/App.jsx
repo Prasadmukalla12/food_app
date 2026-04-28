@@ -1,11 +1,12 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "../src/styles/App.css"
 import { lazy, Suspense } from "react";
-import Dashboard from "./components/Dashboard";
-import Menu from "./components/Menu";
 
 const HomePage = lazy(()=>import("./StartUpPage/Index"))
 const Login = lazy(()=>import("./EntryPonints/Login"))
+const Dashboard = lazy(()=>import("./components/Dashboard"))
+const Menu = lazy(()=>import("./components/Menu"))
+const CartItems = lazy(()=>import("./components/CartItems"))
 
 
 
@@ -22,6 +23,7 @@ export default function App(){
          <Route path="/" element={<HomePage/>} />
          <Route path="/menu" element={<Menu />} />
          <Route path="/dashboard" element={<Dashboard/>} />
+         <Route path="/cart" element={<CartItems />} />
       </Routes>
     </Suspense>
   )

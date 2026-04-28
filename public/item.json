@@ -4,7 +4,7 @@
         "id":"c1",
         "title": "Chicken Dum Biryani",
         "subtitle":"Flavour-packed aloo, spices & long grain rice, cooked the dum pukht way.",
-        "image": "/public/biryani/biryani1.jpg",
+        "image": "/biryani/biryani1.jpg",
         "price" : 399,
         "rating" :3.9,
         "count" : 450
@@ -13,7 +13,7 @@
         "id":"c2",
         "title": "Chicken Biryani(single Plate)",
         "subtitle":"Flavour-packed aloo, spices & long grain rice, cooked the dum pukht way.",
-        "image": "/public/biryani/biryani2.jpg",
+        "image": "/biryani/biryani2.jpg",
         "price" : 199,
         "rating" :3.5,
         "count" : 120
@@ -22,7 +22,7 @@
         "id":"c3",
         "title": "Chicken Biryani(family Pack)",
         "subtitle":"Flavour-packed aloo, spices & long grain rice, cooked the dum pukht way.",
-        "image": "/public/biryani/biryani3.jpg",
+        "image": "/biryani/biryani3.jpg",
         "price" : 229,
         "rating" :4.0,
         "count" : 320
@@ -31,7 +31,7 @@
         "id":"c4",
         "title": "Mutton Biryani(family Pack)",
         "subtitle":"Flavour-packed aloo, spices & long grain rice, cooked the dum pukht way.",
-        "image": "/public/biryani/biryani4.jpg",
+        "image": "/biryani/biryani4.jpg",
         "price" : 189,
         "rating" :3.7,
         "count" : 20
@@ -40,7 +40,7 @@
         "id":"c5",
         "title": "Chicken 65 Biryani",
         "subtitle":"Flavour-packed aloo, spices & long grain rice, cooked the dum pukht way.",
-        "image": "/public/biryani/biryani5.jpg",
+        "image": "/biryani/biryani5.jpg",
         "price" : 359,
         "rating" :4.1,
         "count" : 100
@@ -49,7 +49,7 @@
         "id":"c6",
         "title": "Chicken Biyrani(jumbo Pack)",
         "subtitle":"Flavour-packed aloo, spices & long grain rice, cooked the dum pukht way.",
-        "image": "/public/biryani/biryani6.jpg",
+        "image": "/biryani/biryani6.jpg",
         "price" : 198,
         "rating" :4.3,
         "count" : 550
@@ -61,7 +61,7 @@
         "id":"p1",
         "title": "Onion Capsicum Tomato",
         "subtitle":"Combination of bell pepper , tomato and onion in this pizza with a creamy tomato sauce.",
-        "image": "/public/pizza/pizza1.jpg",
+        "image": "/pizza/pizza1.jpg",
         "price" : 159,
         "rating" :4.1,
         "count":215
@@ -70,7 +70,7 @@
         "id":"p2",
         "title": "Family Fiesta Non Veg",
         "subtitle":"Combination of bell pepper , tomato and onion in this pizza with a creamy tomato sauce.",
-        "image": "/public/pizza/pizza2.jpg",
+        "image": "/pizza/pizza2.jpg",
         "price" : 129,
         "rating" :4.6,
         "count": 214
@@ -79,7 +79,7 @@
         "id":"p3",
         "title": "Special Party Box Veg",
         "subtitle":"Combination of bell pepper , tomato and onion in this pizza with a creamy tomato sauce.",
-        "image": "/public/pizza/pizza3.jpg",
+        "image": "/pizza/pizza3.jpg",
         "price" : 179,
         "rating" :4.2,
         "count": 119
@@ -88,7 +88,7 @@
         "id":"p4",
         "title": "Special Party Box Non Veg",
         "subtitle":"Combination of bell pepper , tomato and onion in this pizza with a creamy tomato sauce.",
-        "image": "/public/pizza/pizza4.jpg",
+        "image": "/pizza/pizza4.jpg",
         "price" : 129,
         "rating" :3.9,
         "count":255
@@ -97,7 +97,7 @@
         "id":"p5",
         "title": "Veg Trio For Trio Friends",
         "subtitle":"Combination of bell pepper , tomato and onion in this pizza with a creamy tomato sauce.",
-        "image": "/public/pizza/pizza5.jpg",
+        "image": "/pizza/pizza5.jpg",
         "price" : 169,
         "rating" :3.1,
         "count":315
@@ -106,7 +106,7 @@
         "id":"p6",
         "title": "Onion Chillie O Trio",
         "subtitle":"Combination of bell pepper , tomato and onion in this pizza with a creamy tomato sauce.",
-        "image": "/public/pizza/pizza6.jpg",
+        "image": "/pizza/pizza6.jpg",
         "price" : 149,
         "rating" :4.2,
         "count":115
@@ -118,7 +118,7 @@
         "id":"b1",
         "title": "Jumbo Royal Chicken Burger",
         "subtitle":"It's a double fillet crunchy burger garnished with fresh lettuce.",
-        "image": "/public/burger/burger1.jpg",
+        "image": "/burger/burger1.jpg",
         "price" :99 ,
         "rating" : 3.6,
         "count" : 112
@@ -127,7 +127,7 @@
         "id":"b2",
         "title": "Chicken Cheese Burger",
         "subtitle":"It's a double fillet crunchy burger garnished with fresh lettuce.",
-        "image": "/public/burger/burger2.jpg",
+        "image": "/burger/burger2.jpg",
         "price" :119,
         "rating" : 3.9,
         "count" : 152
@@ -136,7 +136,7 @@
         "id":"b3",
         "title": "Chicken Grilled Burger",
         "subtitle":"It's a double fillet crunchy burger garnished with fresh lettuce.",
-        "image": "/public/burger/burger3.jpg",
+        "image": "/burger/burger3.jpg",
         "price" :159,
         "rating" : 4.0,
         "count" : 252
@@ -145,7 +145,7 @@
         "id":"b4",
         "title": "Chicken cheese wrap",
         "subtitle":"It's a double fillet crunchy burger garnished with fresh lettuce.",
-        "image": "/public/burger/burger4.jpg",
+        "image": "/burger/burger4.jpg",
         "price" : 189,
         "rating" : 4.2,
         "count" : 592
@@ -154,7 +154,7 @@
         "id":"b5",
         "title": "Broast Chicken Burger",
         "subtitle":"It's a double fillet crunchy burger garnished with fresh lettuce.",
-        "image": "/public/burger/burger5.jpg",
+        "image": "/burger/burger5.jpg",
         "price" :89,
         "rating" : 3.6,
         "count" : 92
@@ -163,7 +163,7 @@
         "id":"b6",
         "title": "Chicken Zinger Burger",
         "subtitle":"It's a double fillet crunchy burger garnished with fresh lettuce.",
-        "image": "/public/burger/burger6.jpg",
+        "image": "/burger/burger6.jpg",
         "price" : 69,
         "rating" : 3.4,
         "count" : 192
@@ -175,7 +175,7 @@
         "id":"j1",
         "title": "Mulberry Malai",
         "subtitle":"A luscious and creamy dessert, perfect for indulging in a little sweetness after your meal.",
-        "image": "/public/juice/juice1.jpg",
+        "image": "/juice/juice1.jpg",
         "price" :220,
         "rating" :4.2,
         "count":255
@@ -184,7 +184,7 @@
         "id":"j2",
         "title": "Guava Juice",
         "subtitle":"A luscious and creamy dessert, perfect for indulging in a little sweetness after your meal.",
-        "image": "/public/juice/juice2.jpg",
+        "image": "/juice/juice2.jpg",
         "price" :189,
         "rating" :4.1,
         "count":248
@@ -193,7 +193,7 @@
         "id":"j3",
         "title": "Pineapple Blossom",
         "subtitle":"A luscious and creamy dessert, perfect for indulging in a little sweetness after your meal.",
-        "image": "/public/juice/juice3.jpg",
+        "image": "/juice/juice3.jpg",
         "price" : 165,
         "rating" :3.9,
         "count": 189
@@ -202,7 +202,7 @@
         "id":"j4",
         "title": "Mango Milkshake",
         "subtitle":"A luscious and creamy dessert, perfect for indulging in a little sweetness after your meal.",
-        "image": "/public/juice/juice4.jpg",
+        "image": "/juice/juice4.jpg",
         "price" :99,
         "rating" :3.7,
         "count":225
@@ -211,7 +211,7 @@
         "id":"j5",
         "title": "Brazilian Lemonade Frappe",
         "subtitle":"A luscious and creamy dessert, perfect for indulging in a little sweetness after your meal.",
-        "image": "/public/juice/juice5.jpg",
+        "image": "/juice/juice5.jpg",
         "price" : 75,
         "rating" :4.2,
         "count": 112
@@ -220,7 +220,7 @@
         "id":"j6",
         "title": "Dry furits milkshake",
         "subtitle":"A luscious and creamy dessert, perfect for indulging in a little sweetness after your meal.",
-        "image": "/public/juice/juice6.jpg",
+        "image": "/juice/juice6.jpg",
         "price" :49,
         "rating" :4.2,
         "count":155

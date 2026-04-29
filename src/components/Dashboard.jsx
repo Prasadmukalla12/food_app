@@ -19,7 +19,7 @@ export default function Dashboard(){
 
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const productsCount = useSelector(state=>state.productsCount)
+    const productsCount = useSelector((state)=>state.productsCount)
 
 
     // Loading Products
@@ -118,7 +118,7 @@ export default function Dashboard(){
             LoadCategories()
             FindLocation()
             setLoading(false)
-          },3000)
+          },1000)
 
           return ()=>
             clearTimeout(timer)
@@ -151,7 +151,7 @@ export default function Dashboard(){
 
             <main className="flex flex-wrap flex-row sm:p-10 md:p-0 mt-10 gap-10 ">
                 
-                  <div className="h-fit ml-10 sm:ml-0 w-80">
+                  <div className="h-fit ml-10 md:ml-10 lg:ml-0 w-80">
                     <div className="h-48 rounded-md bg-gray-400 w-full"></div>
                     <div className="h-fit">
                         <p className="w-full rounded-md bg-gray-400 mt-3 h-8"></p>
@@ -163,7 +163,7 @@ export default function Dashboard(){
                     </div>
                   </div>   
 
-                  <div className="h-fit ml-10 sm:ml-0 w-80">
+                  <div className="h-fit ml-10 md:ml-10 lg:ml-0 w-80">
                     <div className="h-48 rounded-md bg-gray-400 w-full"></div>
                     <div className="h-fit">
                         <p className="w-full rounded-md bg-gray-400 mt-3 h-8"></p>
@@ -175,7 +175,7 @@ export default function Dashboard(){
                     </div>
                   </div>   
 
-                  <div className="h-fit ml-10 sm:ml-0 w-80">
+                  <div className="h-fit ml-10 md:ml-10 lg:ml-0 w-80">
                     <div className="h-48 rounded-md bg-gray-400 w-full"></div>
                     <div className="h-fit">
                         <p className="w-full rounded-md bg-gray-400 mt-3 h-8"></p>
@@ -187,7 +187,7 @@ export default function Dashboard(){
                     </div>
                   </div>   
 
-                  <div className="h-fit ml-10 sm:ml-0 w-80">
+                  <div className="h-fit ml-10 md:ml-10 lg:ml-0 w-80">
                     <div className="h-48 rounded-md bg-gray-400 w-full"></div>
                     <div className="h-fit">
                         <p className="w-full rounded-md bg-gray-400 mt-3 h-8"></p>
@@ -199,7 +199,7 @@ export default function Dashboard(){
                     </div>
                   </div>   
 
-                  <div className="h-fit ml-10 sm:m-0 w-80">
+                  <div className="h-fit ml-10 md:ml-10 lg:ml-0 w-80">
                     <div className="h-48 rounded-md bg-gray-400 w-full"></div>
                     <div className="h-fit">
                         <p className="w-full rounded-md bg-gray-400 mt-3 h-8"></p>
@@ -259,7 +259,7 @@ export default function Dashboard(){
                 {
                     
                       filterProducts.map((item,i)=>
-                     <div className="w-80 shadow-2xl bg-white rounded-xl ml-10 sm:ml-0 h-fit flex flex-col justify-between" key={item.id}>
+                     <div className="w-80 shadow-2xl bg-white rounded-xl ml-10  md:ml-10 lg:ml-0 h-fit flex flex-col justify-between" key={item.id}>
                         <div className="p-2 h-64 relative">
                             <button onClick={()=>{AddToCartClick(item)}} className="bg-orange-500 font-semibold absolute -bottom-1.5 left-24  rounded-2xl px-7 py-1">ADD</button>
                             <img src={item.image} className="rounded-md h-full  w-full"  />

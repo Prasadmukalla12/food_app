@@ -53,6 +53,6 @@ function FooterSection(){
       </div>
     </footer>
     )
-})
+}
 
 export default React.memo(FooterSection);

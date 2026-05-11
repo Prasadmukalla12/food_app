@@ -25,6 +25,6 @@ function HeaderSection(){
         </div>
     </header>
     )
-})
+}
 
 export default React.memo(HeaderSection)

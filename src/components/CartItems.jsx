@@ -5,7 +5,7 @@ import Swal from "sweetalert2"
 import { removeFromCart } from "../Redux/slicer/slicer"
 
 
-export default function CartItems(){
+function CartItems(){
 
     const products = useSelector(state=>state.products)
     const navigate = useNavigate()
@@ -56,3 +56,5 @@ export default function CartItems(){
         
     )
 }
+
+export default React.memo(CartItems)

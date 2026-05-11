@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 
 
-const Menu = React.memo(()=>{
+function Menu(){
 
     return(
         <section>
@@ -223,6 +223,6 @@ const Menu = React.memo(()=>{
 
         </section>
     )
-})
+}
 
-export default Menu;
+export default React.memo(Menu);

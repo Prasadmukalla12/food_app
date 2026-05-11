@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Login = lazy(()=>import("../EntryPonints/Login"))
 
 
-const HeroSection = React.memo(()=>{
+function HeroSection(){
 
   const[showLogin,setShowLogin] = useState(false)
 
@@ -44,6 +44,6 @@ const HeroSection = React.memo(()=>{
         }
     </section>
     )
-})
+}
 
-export default HeroSection;
+export default React.memo(HeroSection);

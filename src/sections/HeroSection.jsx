@@ -1,15 +1,16 @@
-import { useState } from "react";
+import React, { lazy, useCallback, useState } from "react";
 import { Link } from "react-router-dom";
-import Login from "../EntryPonints/Login";
+
+const Login = lazy(()=>import("../EntryPonints/Login"))
 
 
-export default function HeroSection(){
+const HeroSection = React.memo(()=>{
 
   const[showLogin,setShowLogin] = useState(false)
 
-  function handleOrderClick(){
+  const handleOrderClick = useCallback(()=>{
     setShowLogin(true)
-  }
+  })
 
     return(
         <section>
@@ -43,4 +44,6 @@ export default function HeroSection(){
         }
     </section>
     )
-}
+})
+
+export default HeroSection;

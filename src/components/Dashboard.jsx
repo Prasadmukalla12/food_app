@@ -125,7 +125,7 @@ export default function Dashboard(){
           
         }
         
-    },[])
+    },[cookie,LoadCategories,LoadItems,FindLocation,navigate])
 
     return(
         (loading) ? 
@@ -238,17 +238,24 @@ export default function Dashboard(){
                 <input type="text" placeholder="Search items..." onChange={(e)=>setSearchText(e.target.value)} name="itemName" className="py-1 pl-1 focus:outline-blue-200 focus:outline-4 rounded-md bg-white" />
               </div>
               <div>
-                <button onClick={handleCartClick} className="bi bi-cart-check-fill px-3 border-2 border-orange-400 bg-orange-400 rounded-md relative"><span className="bg-red-600 text-white h-4 w-4 text-xs -top-2 -right-2 rounded-full font-bold absolute ">{productsCount}</span></button>
+
+                <button onClick={handleCartClick} 
+                  className="bi bi-cart-check-fill px-3 border-2 border-orange-400 bg-orange-400 rounded-md relative active:translate-0.5">
+                    <span className="bg-red-600 text-white h-4 w-4 text-xs -top-2 -right-2 rounded-full font-bold absolute ">
+                        {productsCount}
+                    </span>
+                </button>
+
               </div>
             </div>
 
             {/* Loading Categories */}
 
               <div className="p-3 mt-5 font-semibold bg-orange-300">
-                <span className="px-2 border-2 hover:cursor-grab  hover:bg-orange-200 active:bg-orange-400 rounded-3xl mr-3" onClick={handleAllClick}>all</span>
+                <button className="px-2 border-2 hover:cursor-grab active:-translate-0.5 active:bg-orange-400 rounded-3xl mr-3" onClick={handleAllClick}>all</button>
                 {
                     categories.map(category=>
-                        <span className="px-2 border-2 hover:bg-orange-200 active:bg-orange-400  rounded-3xl hover:cursor-grab mr-3" onClick={()=>{handleCategoryClick(category)}} key={category}>{category}</span>
+                        <button className="px-2 border-2 active:bg-orange-400 active:-translate-0.5 rounded-3xl hover:cursor-grab mr-3" onClick={()=>{handleCategoryClick(category)}} key={category}>{category}</button>
                     )
                 }
               </div>
@@ -261,7 +268,7 @@ export default function Dashboard(){
                       filterProducts.map((item,i)=>
                      <div className="w-80 shadow-2xl bg-white rounded-xl ml-10  md:ml-10 lg:ml-0 h-fit flex flex-col justify-between" key={item.id}>
                         <div className="p-2 h-64 relative">
-                            <button onClick={()=>{AddToCartClick(item)}} className="bg-orange-500 font-semibold absolute -bottom-1.5 left-24  rounded-2xl px-7 py-1">ADD</button>
+                            <button onClick={()=>{AddToCartClick(item)}} className="bg-orange-500 font-semibold absolute -bottom-1.5 left-24 active:translate-0.5 rounded-2xl px-7 py-1">ADD</button>
                             <img src={item.image} className="rounded-md h-full  w-full"  />
                         </div>
                         <div className="p-2 h-52">

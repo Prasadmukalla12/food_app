@@ -1,8 +1,8 @@
-import { lazy, useState } from "react"
+import React, { lazy, useState } from "react"
 const Login = lazy(()=>import("../EntryPonints/Login"))
 
 
-export default function HeaderSection(){
+const HeaderSection = React.memo(()=>{
 
   const [showLogin,setShowLogin] = useState(false)
 
@@ -25,4 +25,6 @@ export default function HeaderSection(){
         </div>
     </header>
     )
-}
+})
+
+export default HeaderSection

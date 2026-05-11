@@ -1,6 +1,7 @@
+import React from "react"
 
 
-export default function FooterSection(){
+const FooterSection = React.memo(()=>{
 
     return(
        <footer className="bg-gray-900 text-white px-6 py-10 mt-10">
@@ -52,4 +53,6 @@ export default function FooterSection(){
       </div>
     </footer>
     )
-}
+})
+
+export default FooterSection;

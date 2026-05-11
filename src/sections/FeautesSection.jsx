@@ -1,7 +1,8 @@
+import React from "react"
 
 
 
-export default function FeautersSection(){
+const  FeautersSection = React.memo(()=>{
 
 
     return(
@@ -45,4 +46,5 @@ export default function FeautersSection(){
         </div>
         </section>
     )
-}
+})
+export default FeautersSection;

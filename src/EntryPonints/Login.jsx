@@ -1,6 +1,5 @@
-import axios from "axios"
 import { useFormik } from "formik"
-import { useCallback, useEffect, useState } from "react"
+import { useCallback, useState } from "react"
 import { useCookies } from "react-cookie"
 import { Link, useNavigate } from "react-router-dom"
 import Swal from "sweetalert2"
@@ -13,13 +12,13 @@ export default function Login({setShowLogin}){
     const [cookie,setCookie,removeCookie] = useCookies(['user-id'])
 
 
-    const handleCloseClick = ()=>{
+    const handleCloseClick = useCallback(()=>{
         setShowLogin(false)
-    }
+    })
 
-    const handleBlurClick = ()=>{
+    const handleBlurClick = useCallback(()=>{
         setShowLogin(false)
-    }
+    })
 
 
     const formik = useFormik({
@@ -42,7 +41,7 @@ export default function Login({setShowLogin}){
          }else{
             Swal.fire({
                     icon : "error",
-                    title : "Invalid Password"
+                    title : "Invalid user-id"
                 })
          }
        }

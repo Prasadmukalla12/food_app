@@ -8,7 +8,7 @@ import { Provider } from 'react-redux'
 import store from './Redux/store/store.jsx'
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
+  
     <BrowserRouter>
         <CookiesProvider>
           <Provider store={store}>
@@ -16,5 +16,5 @@ createRoot(document.getElementById('root')).render(
           </Provider>
         </CookiesProvider>
     </BrowserRouter>
-  </StrictMode>,
+ 
 )

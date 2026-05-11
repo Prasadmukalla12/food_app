@@ -1,8 +1,9 @@
+import React from "react";
 import { Link } from "react-router-dom";
 
 
 
-export default function Menu(){
+const Menu = React.memo(()=>{
 
     return(
         <section>
@@ -222,4 +223,6 @@ export default function Menu(){
 
         </section>
     )
-}
+})
+
+export default Menu;

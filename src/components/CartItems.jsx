@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { lazy, useCallback, useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { Link, useNavigate } from "react-router-dom"
 import Swal from "sweetalert2"
@@ -11,9 +11,9 @@ export default function CartItems(){
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
-    function cartRemoveClick(product){
+    const cartRemoveClick = useCallback((product)=>{
          dispatch(removeFromCart(product))
-    }
+    },[])
 
     useEffect(()=>{
         if(products.length===0){
@@ -42,7 +42,7 @@ export default function CartItems(){
                     <div className="">
                         <p className="font-bold text-2xl">{product.title}</p>
                         <p className="font-bold text-3xl mt-5 sm:mt-2">{product.price.toLocaleString("en-in",{style:"currency",currency:"INR"})}</p>
-                        <p className="mt-5 sm:mt-2"><button onClick={()=>{cartRemoveClick(product)}} className="border-2 border-amber-400 rounded-3xl py-2 px-7">Remove</button></p>
+                        <p className="mt-5 sm:mt-2"><button onClick={()=>{cartRemoveClick(product)}} className="border-2 border-amber-400 rounded-3xl py-2 px-7 active:translate-x-0.5">Remove</button></p>
                     </div>
                   </div>
                 )

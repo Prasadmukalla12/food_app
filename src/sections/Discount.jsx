@@ -1,6 +1,7 @@
+import React from "react"
 
 
-export default function Discounts(){
+const Discounts =React.memo(()=>{
 
 
     return(
@@ -8,4 +9,5 @@ export default function Discounts(){
             <img src="./offers.jpg" className="w-full my-10" />
         </article>
     )
-}
+})
+export default Discounts;

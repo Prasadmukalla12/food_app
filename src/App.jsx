@@ -7,6 +7,8 @@ const Login = lazy(()=>import("./EntryPonints/Login"))
 const Dashboard = lazy(()=>import("./components/Dashboard"))
 const Menu = lazy(()=>import("./components/Menu"))
 const CartItems = lazy(()=>import("./components/CartItems"))
+const Payment = lazy(()=>import("./components/payment"))
+const GateWay = lazy(()=>import("./components/GateWay"))
 
 
 
@@ -24,6 +26,8 @@ export default function App(){
          <Route path="/menu" element={<Menu />} />
          <Route path="/dashboard" element={<Dashboard/>} />
          <Route path="/cart" element={<CartItems />} />
+         <Route path="/payment" element={<Payment />} />
+         <Route path="/gateway" element={<GateWay/>}/>
       </Routes>
     </Suspense>
   )

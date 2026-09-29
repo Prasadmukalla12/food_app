@@ -15,6 +15,11 @@ function CartItems(){
          dispatch(removeFromCart(product))
     },[])
 
+    let total = 0;
+    for(let product of products){
+        total += product.price
+    }
+
     useEffect(()=>{
         if(products.length===0){
             Swal.fire({
@@ -47,7 +52,14 @@ function CartItems(){
                   </div>
                 )
               }
+              <div  className="p-3 mt-5 border-2 flex justify-between">
+                 <span className="text-2xl font-bold">Total</span>
+                <Link to="/payment"
+                 className="bg-orange-400 rounded-md font-semibold p-2"
+                 >Proceed - {total}/-</Link>
             </div>
+         </div>
+            
         </div> 
         </section>: 
         <section>

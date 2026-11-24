@@ -1,5 +1,5 @@
 export async function authRequest(action, details) {
-  const response = await fetch(`/api/auth/${action}`, action === 'session' ? {} : {
+  const response = await fetch(`/api/auth/${action}`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(details),

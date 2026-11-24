@@ -1,7 +1,6 @@
-import { lazy, Suspense, useEffect, useState } from 'react'
+import { lazy, Suspense, useState } from 'react'
 import { Navigate, Outlet, Route, Routes, useLocation } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { authRequest } from './EntryPonints/auth'
 import { clearCart } from './Redux/slicer/slicer'
 import './styles/App.css'
 
@@ -12,44 +11,83 @@ const Menu = lazy(() => import('./components/Menu'))
 const CartItems = lazy(() => import('./components/CartItems'))
 const Payment = lazy(() => import('./components/payment'))
 const GateWay = lazy(() => import('./components/GateWay'))
+const accountKey = 'delicious-user'
+
+function readSavedUser() {
+  try {
+    const user = JSON.parse(localStorage.getItem(accountKey))
+    if (typeof user?.name === 'string' && typeof user.email === 'string') return user
+  } catch {
+    // Sign in again if browser storage is unavailable or the data is invalid.
+  }
+  return null
+}
 
 function RequireAccount({ user }) {
   const location = useLocation()
-  return user ? <Outlet /> : <Navigate to="/login" state={{ from: location.pathname }} replace />
+  return user ? (
+    <Outlet />
+  ) : (
+    <Navigate to="/login" state={{ from: location.pathname }} replace />
+  )
 }
 
 export default function App() {
-  const [user, setUser] = useState(undefined)
-  const [error, setError] = useState('')
+  const [user, setUser] = useState(readSavedUser)
   const dispatch = useDispatch()
 
-  useEffect(() => {
-    let active = true
-    authRequest('session')
-      .then(account => { if (active) setUser(account) })
-      .catch(() => { if (active) setError('We could not reach the account service.') })
-    return () => { active = false }
-  }, [])
+  function signIn({ name, email }) {
+    const profile = { name, email }
+    try {
+      localStorage.setItem(accountKey, JSON.stringify(profile))
+    } catch {
+      // The user can still stay signed in until the page is refreshed.
+    }
+    setUser(profile)
+  }
 
-  async function logout() {
-    await authRequest('logout')
+  function logout() {
+    try {
+      localStorage.removeItem(accountKey)
+    } catch {
+      // Clear the current page state even when browser storage is unavailable.
+    }
     dispatch(clearCart())
     setUser(null)
   }
 
-  const loading = <p className="page-shell page-status" role="status">Loading…</p>
-  if (error) return <main className="page-shell page-status"><p role="alert">{error}</p><button className="button primary" onClick={() => window.location.reload()}>Try again</button></main>
-  if (user === undefined) return loading
+  const loading = (
+    <p className="mx-auto w-[min(100%-32px,1184px)] py-16" role="status">
+      Loading…
+    </p>
+  )
 
   return (
     <Suspense fallback={loading}>
       <Routes>
         <Route path="/" element={<HomePage user={user} />} />
         <Route path="/menu" element={<Menu user={user} />} />
-        <Route path="/login" element={user ? <Navigate to="/dashboard" replace /> : <Login onSuccess={setUser} />} />
-        <Route path="/register" element={user ? <Navigate to="/dashboard" replace /> : <Login key="register" register onSuccess={setUser} />} />
+        <Route
+          path="/login"
+          element={
+            user ? <Navigate to="/dashboard" replace /> : <Login onSuccess={signIn} />
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            user ? (
+              <Navigate to="/dashboard" replace />
+            ) : (
+              <Login key="register" register onSuccess={signIn} />
+            )
+          }
+        />
         <Route element={<RequireAccount user={user} />}>
-          <Route path="/dashboard" element={<Dashboard user={user} onLogout={logout} />} />
+          <Route
+            path="/dashboard"
+            element={<Dashboard user={user} onLogout={logout} />}
+          />
           <Route path="/cart" element={<CartItems />} />
           <Route path="/payment" element={<Payment />} />
           <Route path="/gateway" element={<GateWay />} />

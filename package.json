@@ -6,17 +6,18 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "start": "node server/start.mjs",
+    "start": "node --env-file-if-exists=.env server/app.js",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "api": "npx  json-server  api.json  --watch  --port=4000"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.11.2",
     "@tailwindcss/vite": "^4.2.2",
     "axios": "^1.15.1",
     "bootstrap-icons": "^1.13.1",
+    "express": "^5.3.0",
     "formik": "^2.4.9",
+    "mongodb": "^7.9.1",
     "react": "^19.2.5",
     "react-cookie": "^8.1.0",
     "react-dom": "^19.2.5",

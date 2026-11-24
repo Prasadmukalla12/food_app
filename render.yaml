@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: delicious-food-app
+    runtime: node
+    plan: free
+    buildCommand: npm ci --include=dev && npm run build
+    startCommand: npm start
+    healthCheckPath: /
+    envVars:
+      - key: NODE_VERSION
+        value: "24.18.1"
+      - key: HOST
+        value: "0.0.0.0"
+      - key: MONGODB_DB
+        value: delicious
+      - key: MONGODB_URI
+        sync: false

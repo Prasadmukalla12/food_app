@@ -11,6 +11,7 @@ const productSlicer = createSlice({
     name : "productSlicer",
     initialState,
     reducers : {
+        clearCart : () => initialState,
         addToCartItems : (state,action)=>{
             state.products.push(action.payload)
             state.productsCount = state.products.length
@@ -22,5 +23,5 @@ const productSlicer = createSlice({
     }
 })
 
-export const {addToCartItems, removeFromCart} = productSlicer.actions
+export const {addToCartItems, removeFromCart, clearCart} = productSlicer.actions
 export default productSlicer.reducer

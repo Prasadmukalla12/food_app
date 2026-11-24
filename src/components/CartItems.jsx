@@ -1,72 +1,36 @@
-import React, { lazy, useCallback, useEffect, useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { Link, useNavigate } from "react-router-dom"
-import Swal from "sweetalert2"
-import { removeFromCart } from "../Redux/slicer/slicer"
+import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
+import { removeFromCart } from '../Redux/slicer/slicer'
+import { rupees } from './money'
 
+export default function CartItems() {
+  const products = useSelector(state => state.products)
+  const dispatch = useDispatch()
+  const lines = new Map()
+  for (const product of products) {
+    const line = lines.get(product.id)
+    if (line) line.quantity += 1
+    else lines.set(product.id, { product, quantity: 1 })
+  }
+  const total = products.reduce((sum, product) => sum + product.price, 0)
 
-function CartItems(){
-
-    const products = useSelector(state=>state.products)
-    const navigate = useNavigate()
-    const dispatch = useDispatch()
-
-    const cartRemoveClick = useCallback((product)=>{
-         dispatch(removeFromCart(product))
-    },[])
-
-    let total = 0;
-    for(let product of products){
-        total += product.price
-    }
-
-    useEffect(()=>{
-        if(products.length===0){
-            Swal.fire({
-               icon : "error",
-               text : "No Cart items found"
-               
-            })
-            navigate("/dashboard")
-        }
-    },[products,navigate])
-
-    return(
-        (products.length>=1)?
-        <section>
-            <Link to="/dashboard" className="font-semibold text-xl text-blue-500 bi bi-arrow-left">Back to food</Link>
-            <div className=" flex justify-center items-center">
-            
-            <div className="sm:p-5 w-1/2">
-              {
-                products.map((product)=>
-                  <div className=" flex border-2 p-3 w-56  md:w-xl lg:w-2xl flex-col sm:flex-row mt-5 sm:gap-5" key={product.id}>
-                    <div className="">
-                        <img src={product.image} className="w-44  h-40" />
-                    </div>
-                    <div className="">
-                        <p className="font-bold text-2xl">{product.title}</p>
-                        <p className="font-bold text-3xl mt-5 sm:mt-2">{product.price.toLocaleString("en-in",{style:"currency",currency:"INR"})}</p>
-                        <p className="mt-5 sm:mt-2"><button onClick={()=>{cartRemoveClick(product)}} className="border-2 border-amber-400 rounded-3xl py-2 px-7 active:translate-x-0.5">Remove</button></p>
-                    </div>
-                  </div>
-                )
-              }
-              <div  className="p-3 mt-5 border-2 flex justify-between">
-                 <span className="text-2xl font-bold">Total</span>
-                <Link to="/payment"
-                 className="bg-orange-400 rounded-md font-semibold p-2"
-                 >Proceed - {total}/-</Link>
-            </div>
-         </div>
-            
-        </div> 
-        </section>: 
-        <section>
-            
-        </section>
-        
-    )
+  return (
+    <main className="page-shell inner-page">
+      <Link className="text-link" to="/dashboard">← Back to dishes</Link>
+      <h1>Your cart</h1>
+      {products.length === 0 ? <p>Your cart is empty. <Link className="text-link" to="/dashboard">Find something delicious</Link>.</p> :
+        <div className="checkout-layout">
+          <ul className="cart-list">
+            {Array.from(lines, ([id, { product, quantity }]) => (
+              <li className="cart-row" key={id}>
+                <img src={product.image} alt="" />
+                <div><h2>{product.title}</h2><p className="muted">{quantity} × {rupees(product.price)}</p></div>
+                <button className="text-link" aria-label={`Remove ${product.title}`} onClick={() => dispatch(removeFromCart(product))}>Remove</button>
+              </li>
+            ))}
+          </ul>
+          <aside className="summary"><h2>Subtotal</h2><strong>{rupees(total)}</strong><Link className="button primary" to="/payment">Go to checkout</Link></aside>
+        </div>}
+    </main>
+  )
 }
-
-export default React.memo(CartItems)

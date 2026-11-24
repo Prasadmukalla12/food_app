@@ -1,16 +1,25 @@
-# React + Vite
+# Delicious
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Delicious is a responsive food storefront with a public menu, account registration, sign-in, a cart, and a checkout price summary.
 
-Currently, two official plugins are available:
+## Run locally
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Use Node.js 24 or later.
 
-## React Compiler
+```sh
+npm install
+npm run dev
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Open the URL Vite prints. Choose **Create account**, enter your name, email and a password with at least eight characters, then start ordering. You can sign out and sign back in with the same email and password. Accounts and sessions are saved in `.data/auth.sqlite`.
 
-## Expanding the ESLint configuration
+## Run the built app
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```sh
+npm run build
+npm start
+```
+
+Open http://127.0.0.1:4173. The Node server serves the site and authentication API from the same origin. For hosting, set `HOST` and `PORT` as needed, configure an HTTPS reverse proxy that preserves the original Host header, and set `COOKIE_SECURE=true`. Set `AUTH_DB_PATH` to a SQLite file on a persistent volume when deploying to a container. The existing Firebase static hosting configuration serves frontend files only and needs a Node backend to support accounts.
+
+The cart lasts for the current page session. The checkout shows prices, delivery fees, and the `NEW2026` coupon. A payment provider and order fulfillment are still pending.

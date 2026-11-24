@@ -1,1 +1,86 @@
 @import "tailwindcss";
+
+:root {
+  font-family: system-ui, sans-serif;
+  color: #272119;
+  background: #fffaf3;
+  --accent: #a63d20;
+  --muted: #66594e;
+  --line: #ebded0;
+}
+
+body { margin: 0; }
+button { cursor: pointer; }
+button:disabled { cursor: wait; opacity: .65; }
+:focus-visible { outline: 3px solid #9b471f; outline-offset: 3px; }
+.page-shell { width: min(100% - 2rem, 74rem); margin-inline: auto; }
+.page-status { padding-block: 4rem; }
+.store-header { background: #fffaf3; border-bottom: 1px solid var(--line); }
+.header-row, .store-footer .page-shell { display: flex; align-items: center; justify-content: space-between; gap: .75rem 1.5rem; flex-wrap: wrap; padding-block: .9rem; }
+.header-row nav, .actions { display: flex; align-items: center; gap: .65rem 1.2rem; flex-wrap: wrap; }
+.header-row nav > a:not(.button), .nav-button { display: inline-flex; align-items: center; min-height: 44px; font-weight: 650; }
+.brand { font-size: clamp(1.55rem, 4vw, 1.95rem); font-family: Georgia, serif; font-weight: 700; letter-spacing: -.06em; }
+.brand span, .hero h1 span { color: var(--accent); }
+.button { display: inline-flex; justify-content: center; align-items: center; gap: .5rem; min-height: 44px; padding: .55rem 1rem; border: 1px solid transparent; border-radius: .75rem; font-weight: 700; text-align: center; }
+.primary { background: var(--accent); color: white; }
+.primary:hover { background: #822f18; }
+.secondary { background: #fff2e5; color: #8c351d; border-color: #ecd4c2; }
+.secondary:hover { background: #ffe5ce; }
+.hero { display: grid; align-items: center; gap: clamp(1.5rem, 6vw, 5rem); padding: clamp(1.4rem, 5vw, 4rem); background: #f8ead9; border-radius: 1.5rem; }
+.hero img { width: 100%; max-height: 27rem; object-fit: contain; }
+.landing { padding-block: clamp(1rem, 3vw, 2.5rem) 4rem; }
+h1, .favorites h2 { font-family: Georgia, serif; line-height: 1.03; letter-spacing: -.045em; font-weight: 700; }
+.hero h1 { font-size: clamp(3rem, 8vw, 6rem); }
+.hero p { max-width: 36ch; margin: 1.25rem 0; color: var(--muted); font-size: clamp(1rem, 2vw, 1.2rem); }
+.favorites { margin-top: clamp(2rem, 5vw, 4rem); }
+.favorites h2 { font-size: clamp(1.85rem, 4vw, 3rem); margin-bottom: 1.25rem; }
+.food-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); gap: 1rem; }
+.food-card { min-width: 0; display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 1rem; overflow: hidden; background: #fff; }
+.category-card:hover { border-color: var(--accent); }
+.food-card img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; background: #f5e6d5; }
+.card-body { display: flex; flex-direction: column; flex: 1; gap: .45rem; padding: 1rem; }
+.card-body h2, .card-body h3, .summary h2, .cart-row h2 { font-weight: 750; line-height: 1.25; font-size: 1.15rem; }
+.card-body p, .muted { color: var(--muted); overflow-wrap: anywhere; }
+.card-bottom { display: flex; align-items: center; justify-content: space-between; gap: .5rem; margin-top: auto; padding-top: .6rem; }
+.rating { align-self: flex-start; color: #813819; background: #fff2e5; padding: .15rem .45rem; border-radius: .4rem; font-size: .8rem; font-weight: 700; }
+.inner-page { padding-block: clamp(1.5rem, 5vw, 3.5rem); }
+.inner-page h1, .auth-panel h1 { font-size: clamp(2rem, 6vw, 3.75rem); margin-block: .5rem 1.2rem; }
+.catalog-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+.search-field { display: flex; align-items: center; gap: .6rem; min-width: 0; flex: 0 1 21rem; padding-inline: .75rem; }
+.search-field, .auth-form input, .coupon input { min-height: 44px; background: white; border: 1px solid #cbb9a9; border-radius: .65rem; }
+.search-field input { min-width: 0; width: 100%; padding-block: .6rem; }
+.filters { display: flex; flex-wrap: wrap; gap: .4rem; }
+.filters button { min-height: 44px; border: 1px solid var(--line); background: white; border-radius: 2rem; padding: .35rem .8rem; text-transform: capitalize; }
+.filters button[aria-pressed="true"] { background: #322219; color: white; border-color: #322219; }
+.notice { margin-bottom: 1rem; color: #365a37; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.store-footer { background: #322219; color: #fff8ed; }
+.store-footer .brand span { color: #ffb797; }
+.text-link { color: #8c351d; text-decoration: underline; font-weight: 700; text-underline-offset: .18em; }
+.auth-layout { display: grid; max-width: 58rem; margin-block: clamp(1rem, 6vw, 5rem); background: white; border: 1px solid var(--line); border-radius: 1rem; overflow: hidden; }
+.auth-photo { display: none; background: #f8ead9 url('/biryani/biryani1.jpg') center / cover no-repeat; }
+.auth-panel { min-width: 0; padding: clamp(1.25rem, 4vw, 3rem); }
+.auth-panel h1 { margin-top: 1.4rem; }
+.auth-form { display: grid; gap: .9rem; margin-block: 1.3rem; }
+.auth-form label, .coupon label { display: grid; gap: .35rem; font-weight: 650; }
+.auth-form input, .coupon input { width: 100%; padding: .55rem .7rem; }
+.form-error { color: #a1261b; }
+.checkout-layout, .cart-list { display: grid; gap: 1rem; align-items: start; }
+.cart-row, .summary { background: white; border: 1px solid var(--line); border-radius: .9rem; padding: 1rem; }
+.cart-row { display: flex; align-items: center; flex-wrap: wrap; gap: .5rem 1rem; }
+.cart-row img { width: 4rem; aspect-ratio: 1; object-fit: cover; border-radius: .5rem; }
+.cart-row div { flex: 1 1 8rem; }
+.summary { display: grid; gap: 1rem; }
+.summary dl { display: grid; gap: .6rem; }
+.summary dl div { display: flex; justify-content: space-between; gap: 1rem; }
+.summary .total { border-top: 1px solid var(--line); padding-top: .6rem; font-weight: 700; }
+.checkout-page { max-width: 36rem; }
+.coupon { display: flex; flex-wrap: wrap; gap: .5rem; align-items: end; }
+.coupon label { flex: 1 1 9rem; min-width: 0; }
+
+@media (min-width: 44rem) {
+  .hero { grid-template-columns: 1fr 1fr; }
+  .auth-layout { grid-template-columns: .9fr 1fr; }
+  .auth-photo { display: block; }
+  .checkout-layout { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); }
+}

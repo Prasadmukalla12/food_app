@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-:root {
+@theme {
   --spacing: 4px;
   --container-xl: 576px;
   --radius-lg: 8px;
